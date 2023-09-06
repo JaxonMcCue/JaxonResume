@@ -19,18 +19,6 @@ function Layout() {
     return "jaxonmccue" + 718 + "@" + "gmail" + ".com";
   };
 
-  const download = () => {
-    fetch("Resume-JaxonMcCue.docx").then((response) => {
-      response.blob().then((blob) => {
-        const fileURL = window.URL.createObjectURL(blob);
-        let alink = document.createElement("a");
-        alink.href = fileURL;
-        alink.download = "Resume-JaxonMcCue.docx";
-        alink.click();
-      });
-    });
-  };
-
   return (
     <div>
       <div className="p-5 pr-7 pb-0 lg:pl-10 bg-cyan-100">
@@ -65,12 +53,13 @@ function Layout() {
             Portfolio
           </Link>
           <br />
-          <button
-            onClick={download}
+          <a
+            href="Resume-JaxonMcCue.docx"
             className="text-right font-bold text-lg pt-2"
+            download={true}
           >
             Download Resume
-          </button>
+          </a>
         </div>
       </div>
       <Outlet />
